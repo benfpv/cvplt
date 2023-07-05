@@ -9,6 +9,15 @@ Pairs of data points are plotted as lines (i.e., cv2.line() function).
 2. cvplt.py
 3. functions.py
 
+# Prerequisites
+1. Numpy
+2. CV2 (opencv-python)
+
+# Instructions to Run the Demo
+1. Run main.py with Python.
+2. Expected outcome is that 5 demo plots should be plotted onto a 800x800 image resized to, and presented on, a 1600x1600 window.
+3. See main.py > Main.loop() for the inputs used to create the demo plots.
+
 # Instructions for Use
 1. Add "cvplt.py" and "functions.py" to your project directory.
 2. Install and import numpy and cv2 in the script where you intend to use this.
