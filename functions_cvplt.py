@@ -9,14 +9,6 @@ class Functions:
         screensize = [screenshape[1], screenshape[0]]
         #print("- screensize: {}".format(screensize))
         return screensize
-    
-    def get_screendepth(screenshot):
-        #print("Functions.get_screendepth()")
-        if not screenshot.any():
-            return []
-        screendepth = len(screenshot.shape)
-        #print("- screendepth: {}".format(screendepth))
-        return screendepth
 
     def get_screencenter(screensize):
         #print("Functions.get_screencenter()")
@@ -31,12 +23,4 @@ class Functions:
             return []
         screenArray = np.zeros((screensize[1], screensize[0], 3), dtype = 'uint8')
         screenArray[:][:] = backgroundColour
-        return screenArray
-    
-    def get_screenarray_gray(screensize):
-        #print("Functions.get_screenarray_gray()")
-        if (not screensize):
-            return []
-        screenArray = np.zeros((screensize[1], screensize[0]), dtype = 'uint8')
-        screenArray[:][:] = 0
         return screenArray

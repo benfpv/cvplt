@@ -2,7 +2,7 @@ import numpy as np
 import time
 import cv2
 
-from functions import *
+from functions_cvplt import *
 from cvplt import *
 
 class Main:
@@ -60,4 +60,4 @@ if __name__ == "__main__":
     main.loopCounterInt, main.timeTotalElapsedDouble = main.loop(main.loopCounterInt, main.timeTotalElapsedDouble)
     # End
     print("--- Main End ---")
-    time.sleep(10)
+    time.sleep(100)

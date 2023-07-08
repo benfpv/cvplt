@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-from functions import *
+from functions_cvplt import *
 
 class cvplt:
     def draw_plot(plotTitle, data, renderArray, plotArrayPosition, plotArraySize, plotBackgroundColour, plotOutlineColour, plotValuesColour):
@@ -31,7 +31,6 @@ class cvplt:
         # Create plotArray
         plotArray = Functions.get_screenarray_colour(plotArraySize, plotBackgroundColour)
         plotArraySize = Functions.get_screensize(plotArray)
-        #plotArrayDepth = Functions.get_screendepth(plotArray)
         #print("- plotArraySize: {}, plotArrayDepth: {}".format(plotArraySize, plotArrayDepth))
         return plotArray, plotArraySize
     
@@ -138,7 +137,6 @@ class cvplt:
     def draw_plotArray_to_renderArray(plotArray, renderArray, plotArrayPosition, plotArraySize):
         # Get renderArray Details
         #renderArraySize = Functions.get_screensize(renderArray)
-        #renderArrayDepth = Functions.get_screendepth(renderArray)
         #print("- renderArraySize: {}, renderArrayDepth: {}".format(renderArraySize, renderArrayDepth))
         # Determine subset of renderArray to overlay with plotArray
         rowRange = [int(plotArrayPosition[1]-(plotArraySize[1]*.5)), int((plotArrayPosition[1]+plotArraySize[1]*.5))]
