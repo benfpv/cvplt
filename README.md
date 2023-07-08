@@ -9,6 +9,7 @@ Pairs of data points are plotted as lines (i.e., cv2.line() function).
 1. main.py
 2. cvplt.py
 3. functions_cvplt.py
+4. README.md
 
 # Prerequisites
 1. Numpy
