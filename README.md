@@ -1,5 +1,5 @@
 # cvplt
-cvplt is a function to plot a 1d Numpy array onto an existing bgr image, such as opencv-python bgr image (i.e., # of Rows x # of Columns x Colour(B,G,R)).
+cvplt is a python function to easily plot a Numpy 1D array to an existing Numpy image array (Rows x Columns x Colour[B,G,R]) using opencv-python (i.e., cv2).
 np.Nan's are omitted. 
 Singular data points are plotted as points (i.e., cv2.circle() function).
 Pairs of data points are plotted as lines (i.e., cv2.line() function).
