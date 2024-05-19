@@ -28,12 +28,22 @@ Pairs of data points are plotted as lines (i.e., cv2.line() function).
 4. Call cvplt.draw_plot() function with the required inputs. Please view "# Functions" section for details.
 
 # Functions
-1. draw_plot(plotTitle, data, renderArray, plotArrayPosition, plotArraySize, plotBackgroundColour, plotOutlineColour, plotValuesColour)
-  - plotTitle, str, title of the plot you wish to be presented in the top-middle of the plot.
-  - data, Numpy array (# of Data Values), 1d Numpy array you wish to plot.
-  - renderArray, Numpy array (# of Rows, # of Columns, Colour(B,G,R)), a BGR image which you want to add your plot to.
-  - plotArrayPosition, Numpy array or List (X, Y), XY coordinates of renderArray where you want the center of your plot to be.
-  - plotArraySize, Numpy array or List (X, Y), XY size that you want your plot to be on the renderArray.
-  - plotBackgroundColour, Numpy array or List (B,G,R), BGR colour that you want the plot background to be.
-  - plotOutlineColour, Numpy array or List (B,G,R), BGR colour that you want the plot outline and text to be.
-  - plotValuesColour, Numpy array or List (B,G,R), BGR colour that you want the plotted data values to be.
+1. draw_plot(renderArray, data, plotBeginXY, plotEndXY, plotTitle="", plotBackgroundColour=[1,1,1], plotOutlineColour=[250,250,250], plotValuesColour=[250,250,250])
+  - renderArray: Numpy array (# of Rows, # of Columns, Colour(B,G,R)), a BGR image which you want to add your plot to.
+  - data: Numpy array (# of Data Values), 1d Numpy array you wish to plot.
+  - plotBeginXY: Numpy array or List (X, Y), XY coordinates of beginning or top-left of plot (inclusive).
+  - plotEndXY: Numpy array or List (X, Y), XY coordinates of end or bottom-right of plot (inclusive).
+  - plotTitle [Optional]: str, title of the plot you wish to be presented in the top-middle of the plot.
+  - plotBackgroundColour [Optional]: Numpy array or List (B,G,R), BGR colour that you want the plot background to be.
+  - plotOutlineColour [Optional]: Numpy array or List (B,G,R), BGR colour that you want the plot outline and text to be.
+  - plotValuesColour [Optional]: Numpy array or List (B,G,R), BGR colour that you want the plotted data values to be.
+
+2. draw_plot_legacy(plotTitle, data, renderArray, plotArrayPosition, plotArraySize, plotBackgroundColour, plotOutlineColour, plotValuesColour)
+  - plotTitle: str, title of the plot you wish to be presented in the top-middle of the plot.
+  - data: Numpy array (# of Data Values), 1d Numpy array you wish to plot.
+  - renderArray: Numpy array (# of Rows, # of Columns, Colour(B,G,R)), a BGR image which you want to add your plot to.
+  - plotArrayPosition: Numpy array or List (X, Y), XY coordinates of renderArray where you want the center of your plot to be.
+  - plotArraySize: Numpy array or List (X, Y), XY size that you want your plot to be on the renderArray.
+  - plotBackgroundColour: Numpy array or List (B,G,R), BGR colour that you want the plot background to be.
+  - plotOutlineColour: Numpy array or List (B,G,R), BGR colour that you want the plot outline and text to be.
+  - plotValuesColour: Numpy array or List (B,G,R), BGR colour that you want the plotted data values to be.

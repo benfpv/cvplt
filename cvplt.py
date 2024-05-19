@@ -4,7 +4,7 @@ import cv2
 from functions_cvplt import *
 
 class cvplt:
-    def draw_plot(plotTitle, data, renderArray, plotArrayPosition, plotArraySize, plotBackgroundColour, plotOutlineColour, plotValuesColour):
+    def draw_plot_legacy(plotTitle, data, renderArray, plotArrayPosition, plotArraySize, plotBackgroundColour, plotOutlineColour, plotValuesColour):
         #print("cvplt.draw_plot()")
         if not renderArray.any():
             return []
@@ -23,6 +23,40 @@ class cvplt:
         plotArray = cvplt.plotArray_draw_plot(plotArray, plotArraySizeActual, dataToPlot, dataLenToPlot, plotValuesColour)
         # Draw Text onto plotArray (font position and size may need "tuning" to fit similarly across differently sized plots)
         plotArray = cvplt.plotArray_draw_text(plotTitle, plotArray, plotArraySize, dataRange, plotOutlineColour)
+        # Draw plotArray on renderArray
+        renderArray = cvplt.draw_plotArray_to_renderArray(plotArray, renderArray, plotArrayPosition, plotArraySize)
+        return renderArray
+        
+    def draw_plot(renderArray, data, plotBeginXY, plotEndXY, plotTitle="", plotBackgroundColour=[1,1,1], plotOutlineColour=[250,250,250], plotValuesColour=[250,250,250]):
+        #print("cvplt.draw_plot()")
+        if not renderArray.any():
+            return []
+        dataLen = len(data)
+        if dataLen < 2:
+            return renderArray
+        # Get plotArrayPosition and plotArraySize
+        plotBeginXY = np.array(plotBeginXY)
+        plotEndXY = np.array(plotEndXY)
+        #print("plotBeginXY: {}, plotEndXY: {}".format(plotBeginXY, plotEndXY))
+        plotArraySize = np.array(plotEndXY-plotBeginXY, dtype="int")
+        #plotArraySize = np.array([plotEndXY[0]-plotBeginXY[0], plotEndXY[1]-plotBeginXY[1]], dtype="int")
+        #print("plotArraySize: {}".format(plotArraySize))
+        plotArraySizeHalf = np.array(plotArraySize * 0.5, dtype="int")
+        #print("plotArraySizeHalf: {}".format(plotArraySizeHalf))
+        plotArrayPosition = plotBeginXY + plotArraySizeHalf
+        #print("plotArrayPosition: {}".format(plotArrayPosition))
+        # Create plotArray
+        plotArray, plotArraySize = cvplt.plotArray_create(plotArraySize, plotBackgroundColour)
+        # Correct plotArraySize to be within plotOutlines.
+        plotArraySizeActual = [plotArraySize[0]-2, plotArraySize[1]-2] #Y axis has additional to account for extra data range and rounding, else plotOutline is compromised by plotted dataValues
+        # Process Data
+        dataToPlot, dataLenToPlot, dataRange = cvplt.plotArray_process_data(data, dataLen, plotArraySizeActual)
+        # Draw plotValues on plotArray (in reverse)
+        plotArray = cvplt.plotArray_draw_plot(plotArray, plotArraySizeActual, dataToPlot, dataLenToPlot, plotValuesColour)
+        # Draw Text onto plotArray (font position and size may need "tuning" to fit similarly across differently sized plots)
+        plotArray = cvplt.plotArray_draw_text(plotTitle, plotArray, plotArraySize, dataRange, plotOutlineColour)
+        # Draw plotOutlines on plotArray
+        plotArray = cvplt.plotArray_draw_outline(plotArray, plotArraySize, plotOutlineColour)
         # Draw plotArray on renderArray
         renderArray = cvplt.draw_plotArray_to_renderArray(plotArray, renderArray, plotArrayPosition, plotArraySize)
         return renderArray
