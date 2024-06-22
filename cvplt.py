@@ -40,6 +40,7 @@ class cvplt:
         #print("plotBeginXY: {}, plotEndXY: {}".format(plotBeginXY, plotEndXY))
         plotArraySize = np.array(plotEndXY-plotBeginXY, dtype="int")
         #plotArraySize = np.array([plotEndXY[0]-plotBeginXY[0], plotEndXY[1]-plotBeginXY[1]], dtype="int")
+        data, dataLen = cvplt.data_resize(data, dataLen, plotArraySize) # RESIZE
         #print("plotArraySize: {}".format(plotArraySize))
         plotArraySizeHalf = np.array(plotArraySize * 0.5, dtype="int")
         #print("plotArraySizeHalf: {}".format(plotArraySizeHalf))
@@ -60,6 +61,19 @@ class cvplt:
         # Draw plotArray on renderArray
         renderArray = cvplt.draw_plotArray_to_renderArray(plotArray, renderArray, plotArrayPosition, plotArraySize)
         return renderArray
+    
+    def data_resize(data, dataLen, plotArraySize): ## WIPWIPWIP - plot nans as zeros?
+        #print("- dataLen: {}, plotArraySize[0]: {}".format(dataLen, plotArraySize[0]))
+        if (dataLen == plotArraySize[0]):
+            return
+        else:
+            #print("- data [{}]: {}".format(dataLen, data))
+            data = data.astype("float32")
+            data = cv2.resize(data, [1,plotArraySize[0]])
+            dataLen = len(data)
+            data = data.reshape(-1)
+            #print("- resized data [{}]: {}".format(dataLen, data))
+        return data, dataLen
     
     def plotArray_create(plotArraySize, plotBackgroundColour):
         # Create plotArray
