@@ -21,8 +21,9 @@ Notes:
 # Instructions to Run the Demo
 1. Run main.py with Python.
 2. See main.py > Main.loop() for the inputs used to create the demo plots.
-3. Expected outcome is that 5 demo plots should be plotted onto a 800x800 image resized to, and presented on, a 1600x1600 window.
-<img width="500" alt="Screen Shot 2023-07-05 at 11 31 46 PM" src="https://github.com/benfpv/cvplt/assets/55154673/df4e022a-a42e-448b-a060-beec2d7ba751">
+3. Expected outcome is that 5 demo plots should be plotted onto a 800x400 window.
+
+![dispArray_Resize](https://github.com/benfpv/cvplt/assets/55154673/5c392636-13fb-45b8-88a1-12eb04732261)
 
 # Instructions for Use
 1. Add "cvplt.py" and "functions.py" to your project directory.
