@@ -2,7 +2,7 @@
 cvplt is a python function to easily overlay a Numpy 1D array to an existing Numpy image array (Rows x Columns x Colour[B,G,R]), for the purpose of plotting via opencv-python (i.e., cv2) imshow().
 
 Notes:
-- np.Nan's are omitted.
+- Data can include np.Nan's - they are simply omitted from plots.
 - Singular data points are plotted as points (i.e., cv2.circle() function).
 - Pairs of data points are plotted as lines (i.e., cv2.line() function).
 
