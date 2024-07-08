@@ -9,7 +9,10 @@ class cvplt:
         if not renderArray.any():
             return []
         dataLen = len(data)
-        if dataLen < 2:
+        dataCount = np.count_nonzero(~np.isnan(data))
+        if (dataLen < 2):
+            return renderArray
+        if (dataCount < 2):
             return renderArray
         # Get plotArrayPosition and plotArraySize
         plotBeginXY = np.array(plotBeginXY)
@@ -42,7 +45,7 @@ class cvplt:
     def data_resize(data, dataLen, plotArraySize): ## WIPWIPWIP - plot nans as zeros?
         #print("- dataLen: {}, plotArraySize[0]: {}".format(dataLen, plotArraySize[0]))
         if (dataLen == plotArraySize[0]):
-            return
+            return data, dataLen
         else:
             #print("- data [{}]: {}".format(dataLen, data))
             data = data.astype("float32")
@@ -88,6 +91,7 @@ class cvplt:
         # Characterize DataMultiplied
         dataMultipliedSortedMagnitude = dataMultiplied.copy()
         dataMultipliedSortedMagnitude.sort()
+        #print("- dataMultipliedSortedMagnitude: {}".format(dataMultipliedSortedMagnitude))
         dataMultipliedRange = [int(np.floor(dataMultipliedSortedMagnitude[0])), int(np.ceil(dataMultipliedSortedMagnitude[-1-dataNanCount]))]
         #dataMultipliedRangeLen = dataMultipliedRange[1]-dataMultipliedRange[0]
         #dataMultipliedMedian = np.median(dataMultiplied)
