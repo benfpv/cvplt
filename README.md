@@ -26,12 +26,12 @@ Notes:
 ![dispArray_Resize](https://github.com/benfpv/cvplt/assets/55154673/5c392636-13fb-45b8-88a1-12eb04732261)
 
 # Instructions for Use
-1. Add "cvplt.py" and "functions.py" to your project directory.
+1. Add "cvplt.py" and "functions_cvplt.py" to your project directory.
 2. Install and import numpy and cv2 in the script where you intend to use this.
-3. Import "cvplt.py" and "functions.py" in the script (e.g., from cvplt import *, from functions.py import *)
+3. Import "cvplt.py" and "functions_cvplt.py" in the script (e.g., from cvplt import *, from functions_cvplt.py import *)
 4. Call cvplt.draw_plot() function with the required inputs. Please view "# Functions" section for details.
 
-# Functions
+# Function
 1. draw_plot(renderArray, data, plotBeginXY, plotEndXY, plotTitle="", plotBackgroundColour=[1,1,1], plotOutlineColour=[250,250,250], plotValuesColour=[250,250,250])
   - renderArray: Numpy array (# of Rows, # of Columns, Colour(B,G,R)), a BGR image which you want to add your plot to.
   - data: Numpy array (# of Data Values), 1d Numpy array you wish to plot.
