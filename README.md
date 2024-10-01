@@ -1,5 +1,5 @@
 # cvplt
-cvplt is a python function to easily overlay a Numpy 1D array to an existing Numpy image array (Rows x Columns x Colour[B,G,R]), for the purpose of plotting via opencv-python (i.e., cv2) imshow().
+cvplt is a function written in Python to easily plot and overlay a Numpy 1D array to an existing Numpy image array (Rows x Columns x Colour[B,G,R]), for the purpose of visualizing plots on images via opencv-python's (i.e., cv2's) imshow().
 
 Notes:
 - Data can include np.Nan's - they are simply omitted from plots.
