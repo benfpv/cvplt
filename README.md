@@ -34,8 +34,8 @@ Notes:
 
 ![dispArray_Resize](https://github.com/benfpv/cvplt/assets/55154673/5c392636-13fb-45b8-88a1-12eb04732261)
 
-# Instructions for Custom Use
-1. Ensure your project environment meets the requirement above.
+# Instructions for Custom Use in Your Own Projects
+1. Ensure your project environment meets the requirements above.
 2. Add "cvplt.py" script to your project directory.
 3. Import "cvplt.py" in your script where you intend to call cvplt functions (e.g., from cvplt import *)
 4. Call the cvplt function(s) as you wish (e.g., cvplt.draw_plot(data)). Please see "# Functions" section for available functions and their input(s) & output(s).
