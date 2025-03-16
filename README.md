@@ -38,7 +38,7 @@ Notes:
 1. Ensure your project environment meets the requirements above.
 2. Add "cvplt.py" script to your project directory.
 3. Import "cvplt.py" in your script where you intend to call cvplt functions (e.g., from cvplt import *)
-4. Call the cvplt function(s) as you wish (e.g., cvplt.draw_plot(data)). Please see "# Functions" section for available functions and their input(s) & output(s).
+4. Call the cvplt function(s) as you wish (e.g., cvplt.draw_plot(data)). Please see "Functions" section for available functions and their input(s) & output(s).
 
 # Functions
 1. draw_plot(data, renderArray=None, plotBeginXY=None, plotEndXY=None, plotTitle="", plotBackgroundColour=[2,2,2], plotOutlineColour=[250,250,250], plotValuesColour=[250,250,250])
@@ -53,14 +53,22 @@ Notes:
   		- plotOutlineColour: Numpy array or List (B,G,R), BGR colour that you want the plot outline and text to be. Defaults to white (e.g., [250,250,250]).
   		- plotValuesColour: Numpy array or List (B,G,R), BGR colour that you want the plotted data values to be. Defaults to white (e.g., [250,250,250]).
 
-2. draw_plot_coords(data, renderArray=None, plotBeginXY=None, plotEndXY=None, plotTitle="", plotBackgroundColour=[2,2,2], plotOutlineColour=[250,250,250], plotValuesColour=[250,250,250])
+2. draw_plot_coords(data, renderArray=None, connectDots=False, plotBeginXY=None, plotEndXY=None, plotTitle="", plotBackgroundColour=[2,2,2], plotOutlineColour=[250,250,250], plotValuesColour=[250,250,250])
 	- Required:  
 		- data: Numpy coordinates array (e.g., [[0,0],[2,2] ... [X,Y]]) you wish to plot (each coordinate == one point). Must be length > 0.
 	- Optional:
   		- renderArray: Numpy array (# of Rows, # of Columns, Colour(B,G,R)), a BGR image which you want to add your plot to. If none provided, defaults to 640x480.
-  		- plotBeginXY: Numpy array or List (X, Y), XY coordinates of beginning or top-left of plot (inclusive). Defaults to fit the renderArray.
+  		- connectDots: Boolean, whether to connect the dots with lines or not. *** Currently this is not yet working ***.
+		- plotBeginXY: Numpy array or List (X, Y), XY coordinates of beginning or top-left of plot (inclusive). Defaults to fit the renderArray.
   		- plotEndXY: Numpy array or List (X, Y), XY coordinates of end or bottom-right of plot (inclusive). Defaults to fit the renderArray.
   		- plotTitle: String, title of the plot you wish to be presented in the top-middle of the plot. Defaults to "".
   		- plotBackgroundColour: Numpy array or List (B,G,R), BGR colour that you want the plot background to be. Defaults to black (e.g., [2,2,2]).
   		- plotOutlineColour: Numpy array or List (B,G,R), BGR colour that you want the plot outline and text to be. Defaults to white (e.g., [250,250,250]).
   		- plotValuesColour: Numpy array or List (B,G,R), BGR colour that you want the plotted data values to be. Defaults to white (e.g., [250,250,250]).
+
+# Known Limitations & Future Directions
+- Update README.md assets etc.
+- Update methods of determining sizing of points and lines to look more appropriate and/or coherent in some situations (e.g., one-point plotting may look wierd compared to line thickness, coordinates plotting may need sizing adjustment based on density [e.g., smaller points when many coordinates are grouped together]).
+- Add ability to add lines between each point in draw_plot_coords() (i.e., connectDots logic).
+- Add method to plot 2D neural networks.
+- Possibly add method to plot 3D+ neural networks? May need be part of a different repo that allows interaction with plots (e.g., to rotate the neural network around in 3D).
