@@ -1,10 +1,11 @@
 # cvplt
 cvplt is a small collection of python functions to quickly and easily plot a Numpy Array to a Numpy Image Array (Rows x Columns x Colour[B,G,R]), for the purpose of plotting via opencv-python (i.e., cv2) imshow().
-Since drawing a plot with opencv-python is computationally quicker than plotting traditionally with matplotlib, cvplt solutions may be ideal for plotting dynamic and/or multiple data.
+
+Since drawing a plot with opencv-python is computationally quicker than plotting traditionally with matplotlib, cvplt solutions may be preferred for quick-and-dirty plotting of dynamic data in real-time (at only a moderate cost to aesthetics :)).
 
 Currently supports the following plotting methods:
-- Numpy 1D Array to 2D Plot with undefined X-axis.
-- Numpy Coordinate Array (e.g., [[0,0],[1,1],[9,10]]).
+- Overlay a Numpy 1D Array to a Numpy Image Array, with undefined X-axis.
+- Overlay a Numpy Coordinates Array (e.g., [[0,0],[1,1],[9,10]]) to a Numpy Image Array.
 
 Notes:
 - How are np.Nan's handled?
