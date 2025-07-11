@@ -23,8 +23,9 @@ Notes:
 4. README.md
 
 # Requirements
-1. Numpy
-2. CV2 (opencv-python)
+1. python 3.12.10 (probably also works on other versions)
+2. numpy
+3. cv2 (opencv-python)
 
 # Instructions to Run the Demo
 1. Run main.py with Python.
